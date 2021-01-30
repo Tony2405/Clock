@@ -120,8 +120,10 @@
             circlesArray[5].replaceChild(numer12, circlesArray[5].childNodes[0]); // тут надо менять индексы когда будут все стрелки
 
 // ОПИСАНИЕ ХОДА ЧАСОВ С УСТАНОВЛЕННЫМ ТАЙМЕРОМ
+        let today = new Date();
     let digital_timer = setInterval(updateTime,1000);
     function updateTime() {
+        setTimeout(updateTime,1020 -today.getMilliseconds());
         let current_time=new Date(); // получаем объект с текущими датой и временем
         var currTimeStr=formatDateTime(current_time); // тут вызывается функция с формат-м даты и времени, в арг-те объект класса new Date 
         center_time.innerHTML= currTimeStr; //вывод отформатированного таймера в созданном спане
@@ -159,6 +161,7 @@
             strVal='0'+strVal;
         return strVal;};
         updateTime();
+        setTimeout(updateTime,1020 -today.getMilliseconds());
 
     </script>
     
